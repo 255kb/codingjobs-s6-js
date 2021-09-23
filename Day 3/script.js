@@ -3,15 +3,15 @@ const contentDiv = document.querySelector("div#content");
 
 // register multiple listeners for the same event
 const registerListeners = function () {
-    contentDiv.addEventListener("click", clickListener);
-    contentDiv.addEventListener("click", clickListener2);
-    contentDiv.addEventListener("mouseenter", () => {
-      console.log("mouseenter");
-    });
-    contentDiv.addEventListener("mouseleave", () => {
-      console.log("mouseleave");
-    });
-  };
+  contentDiv.addEventListener("click", clickListener);
+  contentDiv.addEventListener("click", clickListener2);
+  contentDiv.addEventListener("mouseenter", () => {
+    console.log("mouseenter");
+  });
+  contentDiv.addEventListener("mouseleave", () => {
+    console.log("mouseleave");
+  });
+};
 
 document
   .querySelector("button#startlistening")
@@ -38,7 +38,34 @@ const removeListeners = function () {
 /**
  * there are many events:
  * https://www.w3schools.com/jsref/dom_obj_event.asp
- * 
+ *
+ * - DOMContentLoaded event: browser triggers this event to inform that the DOM is fully loaded (page is fully parsed)
  */
 
 // MORE LOOPS
+
+/**
+ * - for
+ * - while
+ *
+ * - for .. in
+ * - for .. of
+ *
+ * Arrays:
+ * - foreach
+ * - map
+ * - reduce
+ *
+ * Objects:
+ * - keys
+ * - values
+ */
+
+// for .. in
+const article = {
+  title: "title 1",
+  text: "aaaa",
+};
+for (const key in article) {
+  console.log(key);
+}
