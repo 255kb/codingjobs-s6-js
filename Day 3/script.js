@@ -56,12 +56,9 @@ const removeListeners = function () {
  * - map
  * - reduce
  *
- * Objects:
- * - keys
- * - values
  */
 
-// for .. in
+// for .. in: for objects only!
 const article = {
   title: "title 1",
   text: "aaaa",
@@ -69,3 +66,46 @@ const article = {
 for (const key in article) {
   console.log(key);
 }
+
+const list = [1, 2, 3];
+
+// for .. of: for all iterables (array, Map, Set, etc.)
+for (const item of list) {
+  console.log(item);
+}
+
+// Object.keys and Object.values often used in combination with loops
+// Object.keys: directly returns an array with the property names
+console.log(Object.keys(article));
+// Object.values: directly returns an array with the values names
+console.log(Object.values(article));
+
+// LOGIC
+
+const condition1 = true;
+const condition2 = false;
+
+// the most simple test
+if (condition1 === true) {
+  console.log("test passed");
+}
+
+const numberList = [1, 2, 3, 4, 5, 6];
+
+// testing the length of an array
+if (numberList.length > 5) {
+  console.log("that is a big array");
+}
+
+// operators
+// (==)
+// (!=)
+// ===
+// !==
+// >=
+// <=
+// <
+// >
+
+
+// truthy / falsy values
