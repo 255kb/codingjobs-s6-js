@@ -61,9 +61,59 @@ $("#container:odd");
 $("#container:even");
 
 // add (remove) a class on all .child elements
-$('#container').children().addClass("something");
+$("#container").children().addClass("something");
 // $('#container').children().removeClass("something");
 
 // creating an element in our container. No specific jQuery method:
 // https://stackoverflow.com/questions/268490/jquery-document-createelement-equivalent
-$("#container")
+$('<div class="test">content</div>');
+$("<div>");
+const newElement = $(document.createElement("div"));
+const anotherElement = $(document.createElement("div"));
+
+$("#container").append(newElement);
+anotherElement.appendTo($("#container"));
+
+// be careful when chaining. Here we set a class on the container! Because the append method returns the same object (here the container)
+$("#container").append($("<div>")).addClass("test");
+
+// EVENT LISTENERS
+/* document.querySelector("#container").addEventListener("click", () => {
+  console.log("clicked");
+}); */
+// jQuery equivalent
+// deprecated!
+/* $('#container').click(() => {
+
+}) */
+$("#container").on("click", () => {
+  console.log("clicked");
+});
+// reference to the click handler/listener is optional
+// $("#container").off('click');
+// remove all listeners independently of the event name
+// $("#container").off();
+
+$("#container .child").one("click", function () {
+  console.log("child clicked");
+});
+
+/**
+ * Exercise
+ *
+ * - Add a new container with children
+ * - on each child add a click event listener
+ * - when clicked change the color of the clicked item's text only
+ */
+$("#container2")
+  .children()
+  .one("click", function () {
+    console.log("child clicked", this);
+    // we are changing the clicked item color only, not the other items color
+    // jQuery pass the current element inside the this keyword/variable
+    //$(this).css("color", "red");
+
+    // reversed: all the other one turn red except the one which was clicked
+    // code is not working perfectly after the second click (it's just for the demo!)
+    // $(this).siblings().css("color", "red");
+  });
