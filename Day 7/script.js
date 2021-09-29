@@ -80,10 +80,16 @@ $(".square3").animate({ left: "250px" }, 1000, "linear", () => {
   console.log("animation complete");
 });
 
+// interacting with animations, the stop() method
+$("#clickme").on("click", () => {
+  // click fast and multiple times!
+  $(".square3").stop();
+});
+
 // addEventListener DOMContentLoaded equivalent
 // document.addEventListener('DOMContentLoaded', function() {})
 //https://learn.jquery.com/using-jquery-core/document-ready/
-$( document ).ready(function() {
-    console.log( "document is ready!" );
-    // here you need to put the code that is immediately executed when the page starts --> good practice
+$(document).ready(function () {
+  console.log("document is ready!");
+  // here you need to put the code that is immediately executed when the page starts --> good practice
 });
