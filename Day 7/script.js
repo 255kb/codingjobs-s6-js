@@ -59,6 +59,7 @@ document.getElementById("alice").animate(
 // jQuery animations, also called effects (https://api.jquery.com/category/effects/)
 
 // specific methods: fadeIn, fadeOut, fadeToggle, and the same with slide: slideUp, slideDown, slideToggle
+// be careful, fadeOut and slideUp set display:none; on the element after animating
 
 // With the element initially hidden, we can show it slowly:
 $("#clickme").on("click", function () {
@@ -74,4 +75,15 @@ $(".square2").slideUp(1000);
 // slideDown a square3 element when loading the page
 $(".square3").slideDown(1000);
 
-// 
+// animations with .animate() function
+$(".square3").animate({ left: "250px" }, 1000, "linear", () => {
+  console.log("animation complete");
+});
+
+// addEventListener DOMContentLoaded equivalent
+// document.addEventListener('DOMContentLoaded', function() {})
+//https://learn.jquery.com/using-jquery-core/document-ready/
+$( document ).ready(function() {
+    console.log( "document is ready!" );
+    // here you need to put the code that is immediately executed when the page starts --> good practice
+});
