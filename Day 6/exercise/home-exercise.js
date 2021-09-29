@@ -23,7 +23,8 @@ const users = [
     comments: ["s first comment", "s scd comment", "s thrd comment"],
   },
 ];
-const userListElement = document.querySelector("div#user-list");
+// be careful, [0] will give us the HTMLElement, while working with .first() (a jQuery method) will returns a jQuery element
+const userListElement = $("div#user-list").first();
 
 users.sort((firstElement, secondElement) => {
   if (firstElement.numberOfComments > secondElement.numberOfComments) {
@@ -36,25 +37,38 @@ users.sort((firstElement, secondElement) => {
 });
 
 users.forEach((user) => {
-  const newUserElement = document.createElement("div");
-  newUserElement.innerText = `${user.username} (${user.numberOfComments})`;
+  /* const newUserElement = $(document.createElement("div"));
+  newUserElement.text(`${user.username} (${user.numberOfComments})`); */
 
-  const newConnectionElement = document.createElement("span");
+  // alternative
+
+  const newUserElement = $(
+    `<div>${user.username} (${user.numberOfComments})</div>`
+  );
+
+  // closing tag is optional when creating
+  const newConnectionElement = $("<span>");
 
   // add a condition for the connection status
   if (user.connected) {
-    newConnectionElement.innerHTML = '<span class="connected"></span>';
+    newConnectionElement.html('<span class="connected"></span>');
   } else {
-    newConnectionElement.innerHTML = '<span class="disconnected"></span>';
+    newConnectionElement.html('<span class="disconnected"></span>');
   }
 
-  newUserElement.appendChild(newConnectionElement);
+  newUserElement.append(newConnectionElement);
 
   user.comments.forEach((comment) => {
-    const newCommentEl = document.createElement("span");
-    newCommentEl.innerText = comment;
-    newUserElement.appendChild(newCommentEl);
+    /* const newCommentEl = $("<span>");
+    newCommentEl.text(comment);
+    newUserElement.append(newCommentEl); */
+
+    // reduce the size of the above 3 lines using chaining and another append method
+
+    $("<span>").text(comment).appendTo(newUserElement);
+    // alternative, a little bit less readable
+    // $(`<span>${comment}</span>`).appendTo(newUserElement);
   });
 
-  userListElement.appendChild(newUserElement);
+  userListElement.append(newUserElement);
 });

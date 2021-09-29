@@ -111,7 +111,7 @@ $("#container2")
     console.log("child clicked", this);
     // we are changing the clicked item color only, not the other items color
     // jQuery pass the current element inside the this keyword/variable
-    //$(this).css("color", "red");
+    $(this).css("color", "red");
 
     // reversed: all the other one turn red except the one which was clicked
     // code is not working perfectly after the second click (it's just for the demo!)
