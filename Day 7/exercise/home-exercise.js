@@ -3,7 +3,10 @@
  *
  * Starting from the code below:
  * - add a 'close' button inside each product HTML element
- * - when each button is clicked, make it's parent product element disappear in the opposite direction + fade out, using the animate() function
+ * - when each element's 'close' button is clicked, make it's parent product element disappear in the opposite direction + fade out, using the animate() function (i.e. reverse the animation)
+ * 
+ * Bonus
+ * - only display the 'close' button when you hover the product with the mouse (using a mouseover event listener)
  */
 const products = [{ name: "apple" }, { name: "banana" }, { name: "pineapple" }];
 
