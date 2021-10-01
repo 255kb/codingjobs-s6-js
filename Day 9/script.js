@@ -39,3 +39,14 @@ $.get("https://swapi.dev/api/planets/3/", function (data) {
   $(".content").text(`${data.name} (${data.population})`);
   console.log(data);
 });
+
+// forms & data sending
+$("form").on("submit", function (event) {
+  // prevent the form to do its default behavior = reloading the page
+  event.preventDefault();
+  // we can get the data with jQuery serialize() function
+  console.log($("form").serialize());
+
+  // inside each event listener/handler we have access to the event object itself (type of event, etc.)
+  console.log("form submitted", event);
+});
