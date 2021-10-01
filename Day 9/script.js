@@ -44,9 +44,13 @@ $.get("https://swapi.dev/api/planets/3/", function (data) {
 $("form").on("submit", function (event) {
   // prevent the form to do its default behavior = reloading the page
   event.preventDefault();
-  // we can get the data with jQuery serialize() function
-  console.log($("form").serialize());
+  // we can get the data serialized (in a query string) with jQuery serialize() function
+  const formData = $("form").serialize();
+  console.log(formData);
 
+  // we usually use a POST request to send data to a server/API
+  $.post("http://localhost:3000/tasks", formData, function () {});
+  
   // inside each event listener/handler we have access to the event object itself (type of event, etc.)
   console.log("form submitted", event);
 });

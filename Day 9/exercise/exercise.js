@@ -19,3 +19,14 @@ $.get("https://swapi.dev/api/planets/", function (data) {
       .text(`${planet.name}  ${planet.population}`);
   });
 });
+
+
+/**
+ * Exercise 2
+ * - create a small HTML form element with some inputs. Don't forget to set the inputs names attribute.
+ * - add a submit button (type submit)
+ * - listen for 'submit' event on the form
+ * - when the form is submitted, gather the form data
+ * - and make a POST request to our small Node.js API (POST http://localhost:3000/tasks)
+ * - check that we received the data in the terminal/bash running the API
+ */
