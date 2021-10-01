@@ -1,0 +1,14 @@
+[
+  {
+    "name": "john",
+    "age": 45,
+    "married": false,
+    "address": null
+  }, 
+  {
+    "name": "jane",
+    "age": 46,
+    "married": true,
+    "address": "oyster street"
+  }
+]
