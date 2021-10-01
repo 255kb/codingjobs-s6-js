@@ -17,7 +17,10 @@ app.get("/tasks", (req, res) => {
 app.post("/tasks", (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   console.log(req.body);
-  res.send("success");
+  setTimeout(() => {
+    res.statusCode = 201;
+    res.json({ response: "ok" });
+  }, 5000);
 });
 
 app.listen(port, () => {

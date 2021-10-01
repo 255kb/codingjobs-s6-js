@@ -20,7 +20,6 @@ $.get("https://swapi.dev/api/planets/", function (data) {
   });
 });
 
-
 /**
  * Exercise 2
  * - create a small HTML form element with some inputs. Don't forget to set the inputs names attribute.
@@ -29,4 +28,17 @@ $.get("https://swapi.dev/api/planets/", function (data) {
  * - when the form is submitted, gather the form data
  * - and make a POST request to our small Node.js API (POST http://localhost:3000/tasks)
  * - check that we received the data in the terminal/bash running the API
+ * - after the POST call is done, display a small success message on the page
+ *
+ * - check if inputs fields are filled before submitting
  */
+$("form").on("submit", function (event) {
+  event.preventDefault();
+  const formData = $("form").serialize();
+
+  if ($('input[name="firstname"]').value && $('input[name="lastname"]').value) {
+    $.post("http://localhost:3000/tasks", formData, function () {
+      $("<p>Thank you!</p>").appendTo("body");
+    });
+  }
+});
