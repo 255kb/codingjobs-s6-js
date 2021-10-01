@@ -35,3 +35,7 @@ $.ajax({
 });
 
 // another call made with $.get()
+$.get("https://swapi.dev/api/planets/3/", function (data) {
+  $(".content").text(`${data.name} (${data.population})`);
+  console.log(data);
+});
