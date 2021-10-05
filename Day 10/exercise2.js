@@ -8,3 +8,10 @@ const urls = [
   "https://swapi.dev/api/people/2/",
   "https://swapi.dev/api/people/3/",
 ];
+
+urls.forEach(function (url) {
+  // $.ajax()
+  $.get(url, function (character) {
+    $(`<div>${character.name}</div>`).appendTo("body");
+  });
+});
