@@ -57,3 +57,30 @@ const p1 = newProduct(1, "product1");
 const p2 = newProduct(2, "product2");
 
 console.log(p1, p2);
+
+/**
+ * Mistakes
+ */
+$.get("https://petstore3.swagger.io/api/v3/pet/1", function (data) {
+  data.results.forEach((element) => {});
+});
+
+/**
+ * Sort
+ *
+ */
+const arr = [{ name: "Tom" }, { name: "Steven" }];
+console.log(
+  arr.sort((itemA, itemB) => {
+    if (itemA.name < itemB.name) {
+      return -1;
+    } else if (itemA.name > itemB.name) {
+      return 1;
+    } else {
+      return 0;
+    }
+
+    // shorthand
+    // return itemA.name - itemB.name;
+  })
+);
